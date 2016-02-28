@@ -10,7 +10,7 @@ describe('mrspider-cheerio', function() {
             content: html
         };
         var spy = sinon.spy();
-        mrspiderCheerio(page, {}, spy);
+        mrspiderCheerio._transform(page, spy);
         spy.calledOnce.should.equal(true);
     });
 
@@ -20,7 +20,17 @@ describe('mrspider-cheerio', function() {
             content: html
         };
         var spy = sinon.spy();
-        mrspiderCheerio(page, {}, spy);
+        mrspiderCheerio._transform(page, spy);
+        should.exist(page.$);
+    });
+
+    it('should add $ property to page given no content', function() {
+        var html = '<h1>Hi there</h1>';
+        var page = {
+            content: null
+        };
+        var spy = sinon.spy();
+        mrspiderCheerio._transform(page, spy);
         should.exist(page.$);
     });
 
@@ -31,7 +41,7 @@ describe('mrspider-cheerio', function() {
             content: html
         };
         var spy = sinon.spy();
-        mrspiderCheerio(page, {}, spy);
+        mrspiderCheerio._transform(page, spy);
         page.$('h1').text().should.equal('Hi there');
     });
 });
