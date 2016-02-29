@@ -1,6 +1,6 @@
 {
   "name": "mrspider-cheerio",
-  "version": "0.0.2",
+  "version": "1.o.o",
   "description": "cheerio middleware for mrspider",
   "main": "index.js",
   "scripts": {
