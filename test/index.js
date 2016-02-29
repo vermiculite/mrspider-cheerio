@@ -10,7 +10,7 @@ describe('mrspider-cheerio', function() {
             content: html
         };
         var spy = sinon.spy();
-        mrspiderCheerio._transform(page, spy);
+        mrspiderCheerio._transform(page, 'utf8', spy);
         spy.calledOnce.should.equal(true);
     });
 
@@ -20,7 +20,7 @@ describe('mrspider-cheerio', function() {
             content: html
         };
         var spy = sinon.spy();
-        mrspiderCheerio._transform(page, spy);
+        mrspiderCheerio._transform(page, 'utf8', spy);
         should.exist(page.$);
     });
 
@@ -30,7 +30,7 @@ describe('mrspider-cheerio', function() {
             content: null
         };
         var spy = sinon.spy();
-        mrspiderCheerio._transform(page, spy);
+        mrspiderCheerio._transform(page, 'utf8', spy);
         should.exist(page.$);
     });
 
@@ -41,7 +41,7 @@ describe('mrspider-cheerio', function() {
             content: html
         };
         var spy = sinon.spy();
-        mrspiderCheerio._transform(page, spy);
+        mrspiderCheerio._transform(page, 'utf8', spy);
         page.$('h1').text().should.equal('Hi there');
     });
 });
